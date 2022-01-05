@@ -1,0 +1,1 @@
+insert into USER (id, username, name, age, balance) values(1, 'account1','张三',20,100.00)

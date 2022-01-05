@@ -1,0 +1,6 @@
+server:
+  port: 8010
+management:
+  endpoint:
+    health:
+      show-details: always
