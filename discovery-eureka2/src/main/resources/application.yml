@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: eureka-server-ha
+---
+spring:
+  profiles: peer1
+server:
+  port: 18761
+eureka:
+  instance:
+    hostname: hostname1
+    preferIpAddress: false
+  client:
+    serviceUrl:
+      defaultZone: http://hostname2:18762
+
+---
+spring:
+  profiles: peer2
+server:
+  port: 18762
+eureka:
+  instance:
+    hostname: hostname2
+    preferIpAddress: false
+  client:
+    serviceUrl:
+      defaultZone: http://hostname1:18761
+
+#spring:
+#  application:
+#    name: eureka-server-ha
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: profile1
+#server:
+#  port: 18761
+#eureka:
+#  instance:
+#    hostname: hostname1
+#    preferIpAddress: false
+#  client:
+#    servicUrl:
+#      defaultZone: http://hostname1:18762/eureka
+#---
+#spring:
+#  config:
+#    activate:
+#      on-profile: profile2
+#server:
+#  port: 18762
+#eureka:
+#  instance:
+#    hostname: hostname2
+#    preferIpAddress: false
+#  client:
+#    servicUrl:
+#      defaultZone: http://hostname1:18761/eureka
+

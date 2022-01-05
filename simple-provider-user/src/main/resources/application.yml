@@ -11,6 +11,8 @@ spring:
       platform: h2
       schema-locations: classpath:schema.sql
       data-locations: classpath:data.sql
+  application:
+    name: user-service
 logging:
   level:
     root: INFO
@@ -22,4 +24,9 @@ management:
   endpoint:
     health:
       show-details: always
-
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18761/eureka/
+    healthcheck:
+      enabled: true

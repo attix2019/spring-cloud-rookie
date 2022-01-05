@@ -4,3 +4,12 @@ management:
   endpoint:
     health:
       show-details: always
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:18761/eureka/
+    healthcheck:
+      enabled: true
+spring:
+  application:
+    name: movie-service
