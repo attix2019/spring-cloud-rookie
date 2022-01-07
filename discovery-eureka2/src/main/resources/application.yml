@@ -1,6 +1,10 @@
 spring:
   application:
     name: eureka-server-ha
+#  security:
+#    user:
+#      name: user
+#      password: password
 ---
 spring:
   profiles: peer1
@@ -26,6 +30,7 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://hostname1:18761
+
 
 #spring:
 #  application:

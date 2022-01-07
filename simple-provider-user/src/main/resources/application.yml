@@ -30,3 +30,6 @@ eureka:
       defaultZone: http://localhost:18761/eureka/
     healthcheck:
       enabled: true
+  instance:
+    metadata-map:
+      provider-metadata: 用户服务的metadata
