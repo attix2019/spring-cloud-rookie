@@ -1,10 +1,12 @@
 package com.example.simpleconsumermovie;
 
+import feign.Feign;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,9 @@ public class MovieController {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private UserFeignClient userFeignClient;
+
 //    @Autowired
 //    private DiscoveryClient discoveryClient;
 
@@ -27,7 +32,8 @@ public class MovieController {
 
     @GetMapping("/user/{id}")
     public User findById(@PathVariable long id){
-        return restTemplate.getForObject("http://user-service/" + id, User.class);
+//        return restTemplate.getForObject("http://user-service/" + id, User.class);
+        return userFeignClient.findById(id);
     }
 
     @GetMapping("/log-instance")
