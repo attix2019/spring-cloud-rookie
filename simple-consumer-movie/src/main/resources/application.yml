@@ -4,6 +4,9 @@ management:
   endpoint:
     health:
       show-details: always
+    web:
+      exposure:
+        include: hystrix.stream
 eureka:
   client:
     serviceUrl:
